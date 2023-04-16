@@ -1,0 +1,33 @@
+# -*- mode:org -*-
+#+OPTIONS: num:nil toc:nil ^:nil ':nil
+#+TITLE: ORG Publish index creation reproduction
+#+AUTHOR: Bence Fabian 
+
+
+* Managed to separate a good and a bad situation
+
+** File structure
+
+The publishable project lives in [[file:long/path/to/something/index.org]]
+
+There's a symlink called [[file:shortcut]] which links to [[file:long/path/to]]
+
+** Good scenario
+
+1. Open the project as [[file:long/path/to/something/index.org]].
+2. Evaluate the code block.
+3. Publish the project with =C-c C-e P x TAB RET=
+4. Notice that =theindex.inc= is populated.
+
+
+** Bad scenario
+
+1. Open the project as [[file:shortcut/something/index.org]].
+2. Evaluate the code block.
+3. Publish the project with =C-c C-e P x TAB RET=
+4. Notice that =theindex.inc= is *not* populated.
+
+** Caveat
+
+Make sure emacs doesn't resolve the symlink beforehand.
+You can check by validating the path in the code block result.

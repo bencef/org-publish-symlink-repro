@@ -1,0 +1,85 @@
+# -*- mode:org -*-
+#+OPTIONS: num:nil toc:nil ^:nil ':t
+#+TITLE: Introductory one-shot campaign
+#+AUTHOR: Bence Fabian
+#+latex_header: \usepackage{parskip}
+#+latex_header: \usepackage{microtype}
+
+* COMMENT Configuration
+
+Options are:
+
+- base-directory :: Directory containing publishing source files.
+- publishing-directory :: Directory where output files are
+  published. You can directly publish to a webserver using a file name
+  syntax appropriate for the Emacs tramp package. Or you can publish
+  to a local directory and use external tools to upload your website
+  (see Uploading Files).
+- preparation-function :: Function or list of functions to be called
+  before starting the publishing process, for example, to run ‘make’
+  for updating files to be published. Each preparation function is
+  called with a single argument, the project property list.
+- completion-function :: Function or list of functions called after
+  finishing the publishing process, for example, to change permissions
+  of the resulting files. Each completion function is called with a
+  single argument, the project property list.
+
+#+begin_src emacs-lisp
+  (let ((base-dir default-directory))
+    (setq org-publish-project-alist
+          `(("intro one-shot"
+             :makeindex t
+             :base-directory ,base-dir
+             :base-extension "org"
+             :recursive t
+             :publishing-function org-html-publish-to-html
+             :publishing-directory ,(string-join `(,base-dir "output"))))))
+#+end_src
+
+#+RESULTS:
+| intro one-shot | :makeindex | t | :base-directory | /tmp/publish/shortcut/something/ | :base-extension | org | :recursive | t | :publishing-function | org-html-publish-to-html | :publishing-directory | /tmp/publish/shortcut/something/output |
+
+* Overview
+
+* NPCs
+#+INDEX: Characters
+
+** Elbrurog
+#+INDEX: Characters!Elbrurog
+
+This is the description of "Elbrurog"
+
+** Harg-bu
+#+INDEX: Characters!bu
+
+This is the description of "Harg-bu"
+
+** Joankev
+#+INDEX: Characters!Joankev
+
+This is the description of "Joankev"
+
+** Johnleofdan
+#+INDEX: Characters!Johnleofdan
+
+This is the description of "Johnleofdan"
+
+** Locjoan
+#+INDEX: Characters!Locjoan
+
+This is the description of "Locjoan"
+
+** Lukhurtztu
+#+INDEX: Characters!Lukhurtztu
+
+This is the description of "Lukhurtztu"
+
+** Toljoangrim
+#+INDEX: Characters!Toljoangrim
+
+This is the description of "Toljoangrim"
+
+
+* Encounters
+
+* Places
